@@ -5,7 +5,8 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     @msg = <%= "params[:msg]" %>
     @failed_contacts = <%= "params[:fail_in_upload]" %>
-    
+    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => "" }

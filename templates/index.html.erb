@@ -5,3 +5,25 @@
   <%%=  render :partial => 'form', :locals => {:download_path => new_<%= singular_table_name %>_path(:format => :xls),
                                                 :upload_path => <%= index_helper %>_path} %>
 </div>
+
+<h1>Listing <%= plural_table_name %></h1>
+
+<table>
+  <tr>
+<% for attribute in attributes -%>
+    <th><%= attribute.human_name %></th>
+<% end -%>
+  </tr>
+
+<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <tr>
+<% for attribute in attributes -%>
+    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+  </tr>
+<%% end %>
+</table>
+
+<br />
+
+<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>

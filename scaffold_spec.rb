@@ -19,9 +19,6 @@ Scaffoldhub::Specification.new do
     tag 'upload'
     tag 'excel'
 
-    # Optionally specify an example of a scaffold parameter
-    parameter_example 'FIELD_NAME'
-
     # Optionally post a link to an article you write explaining how the scaffold works.
     blog_post 'https://github.com/pikender/UploadExcel/wiki/what-and-how-to-use'
   end
@@ -63,5 +60,15 @@ Scaffoldhub::Specification.new do
   gem 'fastercsv', '1.5.4'
   gem 'activerecord-import', ">= 0.2.0"
   gem 'excel_rails', '0.1.3'
+
+  post_install_message <<MESSAGE
+Please run "bundle install" to install the new gems added to your Gemfile.
+Then run "rake db:migrate" to create your new database table.
+Then run your Rails server and open http://localhost:3000/PLURAL_NAME
+to see the index page. You can click "Sample Template" to download an empty
+Excel file, and then upload it again after entering some data for each of
+your model's fields. See: https://github.com/pikender/UploadExcel/wiki/what-and-how-to-use
+for more information.
+MESSAGE
 
 end
